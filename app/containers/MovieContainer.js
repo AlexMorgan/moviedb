@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Movie from '../components/Movie'
 import { getMoviesList } from '../utils/helpers'
 import { Link } from 'react-router'
 
@@ -20,22 +21,15 @@ class MovieContainer extends Component {
     }
 
     render () {
-        let movieList = this.state.movies.map((movie, i) => {
-            let linkPath = `/movie/${movie.id}`;
-
+        let movieList = this.state.movies.map((movie) => {
             return (
-                <div className="movie-tout col-sm-6 col-md-4 col-lg-3" key={ movie.id }>
-                    <Link to={ linkPath }>
-                        <img className="movie-tout__poster" src={ `http://image.tmdb.org/t/p/w185/${movie.poster_path}` } />
-                        <h3 className="movie-tout__title">{ movie.title }</h3>
-                    </Link>
-                </div>
+                <Movie key={movie.id} movie={movie} />
             )
         })
 
         return (
             <section>
-                <h1>Now Playing</h1>
+                <h1 className="page-title page-title--center">Now Playing</h1>
                 { movieList }
             </section>
         )

@@ -1,7 +1,7 @@
 import React from 'react'
 require('../styles/MainContainer.scss')
 
-function MainContainer({children}) {
+const MainContainer = ({children}) => {
     return (
         <div className="container">
             {children}

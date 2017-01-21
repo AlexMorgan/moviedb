@@ -1,16 +1,11 @@
-.jumbotron--transparent {
-    background-color: transparent;
+.page-title {
+    margin-bottom: 40px;
+
+    &--center {
+        text-align: center;
+    }
 }
 
-.movie-tout {
-    margin-bottom: 20px;
-    min-height: 330px;
-
-    &__title {
-        color: #000;
-        font-size: 12px;
-        margin-top: 10px;
-        padding: 0 20px;
-        text-transform: uppercase;
-    }
+.jumbotron--transparent {
+    background-color: transparent;
 }

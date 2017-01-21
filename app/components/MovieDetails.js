@@ -6,6 +6,7 @@ const MovieDetails = ({movie, reviews}) => (
     <section className="movie-details">
         <h1>{ movie.title }</h1>
         <h3>{ movie.tagline }</h3>
+        <h6>Average Rating: { movie.vote_average }</h6>
         <img src={ `http://image.tmdb.org/t/p/w185/${movie.poster_path}` } />
         <p>Release Date: { moment(movie.release_date).format('MMMM Do YYYY') }</p>
 
@@ -15,9 +16,7 @@ const MovieDetails = ({movie, reviews}) => (
 
 MovieDetails.propTypes = {
     movie: PropTypes.object.isRequired,
-    reviews: PropTypes.shape({
-        results: PropTypes.array
-    })
+    reviews: PropTypes.object.isRequired
 }
 
 export default MovieDetails
