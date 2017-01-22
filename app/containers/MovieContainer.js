@@ -1,21 +1,22 @@
 import React, { Component } from 'react'
-import Movie from '../components/Movie'
 import { getMoviesList } from '../utils/helpers'
 import { Link } from 'react-router'
+import MovieList from '../components/MovieList'
 
 class MovieContainer extends Component {
     constructor () {
         super()
         this.state = {
             movies: [],
-            page: 1
+            page: 1,
+            isLoading: true
         }
     }
 
     async componentDidMount () {
         try {
             const movies = await getMoviesList(this.state.page);
-            this.setState({movies});
+            this.setState({movies, isLoading: false});
         } catch(error) {
             console.warn('Error in MovieContainer: ', error)
         }
@@ -28,16 +29,10 @@ class MovieContainer extends Component {
     }
 
     render () {
-        let movieList = this.state.movies.map((movie) => {
-            return (
-                <Movie key={movie.id} movie={movie} />
-            )
-        })
-
         return (
             <section>
                 <h1 className="page-title page-title--center">Now Playing</h1>
-                { movieList }
+                <MovieList movies={this.state.movies} isLoading={this.state.isLoading} />
             </section>
         )
     }
