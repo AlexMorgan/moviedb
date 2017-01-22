@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import Movie from './Movie'
 import Loading from './Loading'
 
@@ -10,7 +10,7 @@ const MovieList = ({movies, isLoading}) => {
     }
 
     let movieList = movies.map((movie) => {
-        return <Movie key={movie.id} movie={movie} />
+        return <Movie key={movie.id} id={movie.id} title={movie.title} posterPath={movie.poster_path} />
     })
 
     return (
@@ -18,6 +18,10 @@ const MovieList = ({movies, isLoading}) => {
             { movieList }
         </div>
     )
+}
+
+MovieList.propTypes = {
+    movies: PropTypes.array.isRequired
 }
 
 export default MovieList

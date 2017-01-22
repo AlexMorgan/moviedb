@@ -16,4 +16,8 @@ const ReviewList = ({reviews}) => {
     )
 }
 
+ReviewList.propTypes = {
+    reviews: PropTypes.array.isRequired
+}
+
 export default ReviewList

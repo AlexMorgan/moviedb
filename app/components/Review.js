@@ -10,4 +10,9 @@ const Review = ({content, author}) => {
     )
 }
 
+Review.propTypes = {
+    content: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired
+}
+
 export default Review
