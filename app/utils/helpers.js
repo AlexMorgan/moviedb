@@ -2,8 +2,8 @@ import axios from 'axios';
 
 const API_ID = '306bd1f9dda87b11475c98f9d47e3862'
 
-export function getMoviesList() {
-    const API_URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_ID}`
+export function getMoviesList(page) {
+    const API_URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_ID}&page=${page}`
 
     return axios.get(API_URL)
         .then((response) => response.data.results)

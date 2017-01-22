@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 require('../styles/Movie.scss')
 
 const Movie = ({movie}) => {
-    let linkPath = `/movie/${movie.id}`;
+    const linkPath = `/movie/${movie.id}`;
     return (
         <div className="movie-tout col-sm-6 col-md-4 col-lg-3">
             <Link to={ linkPath }>

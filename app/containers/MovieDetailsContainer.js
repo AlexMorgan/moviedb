@@ -8,7 +8,8 @@ class MovieDetailsContainer extends Component {
         super()
         this.state = {
             movie: {},
-            reviews: {}
+            reviews: {},
+            isLoading: true
         }
     }
 
@@ -19,7 +20,9 @@ class MovieDetailsContainer extends Component {
 
             this.setState({
                 movie: data[0],
-                reviews: data[1]
+                reviews: data[1],
+                isLoading: false
+
             })
             console.log('movie details: ', this.state.movie)
         } catch(error) {
@@ -30,7 +33,7 @@ class MovieDetailsContainer extends Component {
     render () {
         return (
             <MainContainer>
-                <MovieDetails movie={this.state.movie} reviews={this.state.reviews} />
+                <MovieDetails isLoading={this.state.isLoading} movie={this.state.movie} reviews={this.state.reviews} />
             </MainContainer>
         )
     }

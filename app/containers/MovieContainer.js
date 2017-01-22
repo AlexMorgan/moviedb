@@ -7,17 +7,24 @@ class MovieContainer extends Component {
     constructor () {
         super()
         this.state = {
-            movies: []
+            movies: [],
+            page: 1
         }
     }
 
     async componentDidMount () {
         try {
-            const movies = await getMoviesList();
+            const movies = await getMoviesList(this.state.page);
             this.setState({movies});
         } catch(error) {
             console.warn('Error in MovieContainer: ', error)
         }
+    }
+
+    handlePaginationNext() {
+        const nextPage = this.state.page + 1
+        this.setState({page: nextPage})
+        console.log(this.state.page)
     }
 
     render () {

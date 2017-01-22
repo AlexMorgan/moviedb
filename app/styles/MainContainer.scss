@@ -1,3 +1,8 @@
+.main-container {
+    min-height: 100vh;
+    position: relative;
+}
+
 .page-title {
     margin-bottom: 40px;
 
@@ -8,4 +13,21 @@
 
 .jumbotron--transparent {
     background-color: transparent;
+}
+
+.spinner {
+    background-color: #eee;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.spinner__animation {
+    position: absolute;
+    left: 0;
+    margin: auto;
+    right: 0;
+    top: 45%;
 }

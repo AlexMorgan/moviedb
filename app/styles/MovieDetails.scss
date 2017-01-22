@@ -1,0 +1,17 @@
+.genre-list {
+    padding: 0;
+}
+
+.genre-list__item {
+    background-color: #eee;
+    border-radius: 2px;
+    display: inline;
+    font-size: 11px;
+    list-style: none;
+    padding: 2px 5px;
+    text-transform: uppercase;
+
+    & + & {
+        margin-left: 10px;
+    }
+}
