@@ -16,7 +16,7 @@
 }
 
 .spinner {
-    background-color: #eee;
+    background-color: #ecf0f1;
     height: 100%;
     left: 0;
     position: absolute;
@@ -24,10 +24,21 @@
     width: 100%;
 }
 
-.spinner__animation {
+.spinner__copy {
     position: absolute;
     left: 0;
     margin: auto;
     right: 0;
+    text-align: center;
     top: 45%;
+}
+
+.list-container {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }

@@ -3,8 +3,9 @@
 }
 
 .genre-list__item {
-    background-color: #eee;
+    background-color: #34495e;
     border-radius: 2px;
+    color: #fff;
     display: inline;
     font-size: 11px;
     list-style: none;
@@ -13,5 +14,26 @@
 
     & + & {
         margin-left: 10px;
+    }
+}
+
+
+.movie-details {
+    &__container {
+        display: inline-flex;
+    }
+
+    &__info {
+        background-color: #ecf0f1;
+        padding: 10px 20px;
+    }
+
+    &__poster {
+        margin-right: 20px;
+    }
+
+    &__title {
+        font-size: 32px;
+        text-transform: uppercase;
     }
 }

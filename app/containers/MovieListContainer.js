@@ -3,7 +3,7 @@ import { getMoviesList } from '../utils/helpers'
 import { Link } from 'react-router'
 import MovieList from '../components/MovieList'
 
-class MovieContainer extends Component {
+class MovieListContainer extends Component {
     constructor () {
         super()
         this.state = {
@@ -18,14 +18,8 @@ class MovieContainer extends Component {
             const movies = await getMoviesList(this.state.page);
             this.setState({movies, isLoading: false});
         } catch(error) {
-            console.warn('Error in MovieContainer: ', error)
+            console.warn('Error in MovieListContainer: ', error)
         }
-    }
-
-    handlePaginationNext() {
-        const nextPage = this.state.page + 1
-        this.setState({page: nextPage})
-        console.log(this.state.page)
     }
 
     render () {
@@ -38,4 +32,4 @@ class MovieContainer extends Component {
     }
 }
 
-export default MovieContainer;
+export default MovieListContainer;

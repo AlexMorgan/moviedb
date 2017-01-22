@@ -3,7 +3,7 @@ import React from 'react'
 const Loading = () => {
     return (
         <div className="spinner">
-            <img className="spinner__animation" src="https://thomas.vanhoutte.be/miniblog/wp-content/uploads/light_blue_material_design_loading.gif"/>
+            <h1 className="spinner__copy">Loading...</h1>
         </div>
     )
 }

@@ -15,16 +15,13 @@ class MovieDetailsContainer extends Component {
 
     async componentDidMount () {
         try {
-
             const data = await movieInfo(this.props.params.movieId)
-
             this.setState({
                 movie: data[0],
                 reviews: data[1],
                 isLoading: false
 
             })
-            console.log('movie details: ', this.state.movie)
         } catch(error) {
             console.warn('Error in MovieDetailsContainer: ', error)
         }

@@ -9,8 +9,8 @@ const ReviewList = ({reviews}) => {
     })
 
     return (
-        <div>
-            <h1>Reviews:</h1>
+        <div className="list-container">
+            <h2 className="section-title">Reviews:</h2>
             {listItems}
         </div>
     )

@@ -1,11 +1,11 @@
 import React from 'react'
 import MainContainer from './MainContainer'
-import MovieContainer from '../containers/MovieContainer'
+import MovieListContainer from '../containers/MovieListContainer'
 
 const Home = () => {
     return (
         <MainContainer>
-            <MovieContainer />
+            <MovieListContainer />
         </MainContainer>
     )
 }
