@@ -9,33 +9,57 @@ class MovieListContainer extends Component {
         this.state = {
             movies: [],
             page: 1,
+            filter: 'now_playing',
             isLoading: true
         }
     }
 
     async componentDidMount () {
         try {
-            const movies = await getMoviesList(this.state.page);
+            const movies = await getMoviesList(this.state.page, this.state.filter);
             this.setState({movies, isLoading: false});
         } catch(error) {
             console.warn('Error in MovieListContainer: ', error)
         }
     }
 
-    async handlePaginationClick() {
+    async handlePaginationClick () {
         const nextPage = arguments[0] === 'back' ? this.state.page - 1 : this.state.page + 1
-        const movies = await getMoviesList(nextPage);
 
-        this.setState({
-            page: nextPage,
-            movies
-        })
+        try {
+            const movies = await getMoviesList(nextPage, this.state.filter);
+            this.setState({
+                page: nextPage,
+                movies
+            })
+        } catch(error) {
+            console.warn('Error in handlePaginationClick: ', error)
+        }
+    }
+
+    async handleSelect (event) {
+        const filter = event.target.value
+
+        try {
+            const movies = await getMoviesList(this.state.page, filter);
+            this.setState({
+                filter,
+                movies
+            })
+        } catch(error) {
+            console.warn('Error in handlePaginationClick: ', error)
+        }
     }
 
     render () {
         return (
             <section>
                 <h1 className="page-title page-title--center">Now Playing</h1>
+                <select onChange={this.handleSelect.bind(this)}>
+                    <option value="now_playing">Now Playing</option>
+                    <option value="top_rated">Top Rated</option>
+                    <option value="upcoming">Coming Soon</option>
+                </select>
                 <MovieList movies={this.state.movies} isLoading={this.state.isLoading} />
                 <div className="pagination">
                     {this.state.page > 1 &&
