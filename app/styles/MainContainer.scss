@@ -22,15 +22,15 @@
     position: absolute;
     top: 0;
     width: 100%;
-}
 
-.spinner__copy {
-    position: absolute;
-    left: 0;
-    margin: auto;
-    right: 0;
-    text-align: center;
-    top: 45%;
+    &__copy {
+        position: absolute;
+        left: 0;
+        margin: auto;
+        right: 0;
+        text-align: center;
+        top: 45%;
+    }
 }
 
 .list-container {
@@ -41,4 +41,16 @@
     font-size: 18px;
     letter-spacing: 1px;
     text-transform: uppercase;
+}
+
+.btn {
+    & + & {
+        margin-left: 10px;
+    }
+}
+
+.pagination {
+    display: block;
+    margin-bottom: 40px;
+    text-align: center;
 }

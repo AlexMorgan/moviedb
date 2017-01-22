@@ -22,10 +22,14 @@ class MovieListContainer extends Component {
         }
     }
 
-    handlePaginationNext() {
-        const nextPage = this.state.page + 1
-        this.setState({page: nextPage})
-        console.log(this.state.page)
+    async handlePaginationClick() {
+        const nextPage = arguments[0] === 'back' ? this.state.page - 1 : this.state.page + 1
+        const movies = await getMoviesList(nextPage);
+
+        this.setState({
+            page: nextPage,
+            movies
+        })
     }
 
     render () {
@@ -33,7 +37,12 @@ class MovieListContainer extends Component {
             <section>
                 <h1 className="page-title page-title--center">Now Playing</h1>
                 <MovieList movies={this.state.movies} isLoading={this.state.isLoading} />
-                <button onClick={ this.handlePaginationNext.bind(this) }>Page 2</button>
+                <div className="pagination">
+                    {this.state.page > 1 &&
+                        <button className="btn" onClick={ this.handlePaginationClick.bind(this, 'back') }>Back</button>
+                    }
+                    <button className="btn" onClick={ this.handlePaginationClick.bind(this, 'next') }>Next</button>
+                </div>
             </section>
         )
     }

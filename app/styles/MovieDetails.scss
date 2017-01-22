@@ -1,8 +1,7 @@
 .genre-list {
     padding: 0;
-}
 
-.genre-list__item {
+    &__item {
     background-color: #34495e;
     border-radius: 2px;
     color: #fff;
@@ -12,8 +11,9 @@
     padding: 2px 5px;
     text-transform: uppercase;
 
-    & + & {
-        margin-left: 10px;
+        & + & {
+            margin-left: 10px;
+        }
     }
 }
 
