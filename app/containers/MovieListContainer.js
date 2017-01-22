@@ -47,15 +47,14 @@ class MovieListContainer extends Component {
                 movies
             })
         } catch(error) {
-            console.warn('Error in handlePaginationClick: ', error)
+            console.warn('Error in handleSelect: ', error)
         }
     }
 
     render () {
         return (
             <section>
-                <h1 className="page-title page-title--center">Now Playing</h1>
-                <select onChange={this.handleSelect.bind(this)}>
+                <select className="filter" onChange={this.handleSelect.bind(this)}>
                     <option value="now_playing">Now Playing</option>
                     <option value="top_rated">Top Rated</option>
                     <option value="upcoming">Coming Soon</option>
